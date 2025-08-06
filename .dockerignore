@@ -1,0 +1,23 @@
+# Docker ignore file for Odoo Auth Service
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage
+.nyc_output
+.env*
+!.env.example
+.git
+.gitignore
+README.md
+TESTING.md
+AGENT_WORKING_FILE.md
+*.test.js
+server-test.js
+setup-test-env.js
+validate-test-env.js
+.vscode
+.idea
+*.swp
+*.swo
+*~

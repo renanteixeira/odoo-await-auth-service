@@ -1,0 +1,81 @@
+{
+  "name": "@renanteixeira/odoo-auth-service",
+  "version": "1.0.0",
+  "description": "Secure microservice for Odoo authentication with JWT tokens",
+  "main": "server.js",
+  "author": "Renan Teixeira <renan.teixeira@itbrasil.com.br>",
+  "license": "MIT",
+  "keywords": [
+    "odoo",
+    "authentication",
+    "microservice",
+    "jwt",
+    "express",
+    "security"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renanteixeira/odoo-await-auth-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/renanteixeira/odoo-await-auth-service/issues"
+  },
+  "homepage": "https://github.com/renanteixeira/odoo-await-auth-service#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "files": [
+    "server.js",
+    "server-secure.js",
+    ".env.example",
+    "README.md",
+    "EXAMPLES.md",
+    "Dockerfile",
+    "docker-compose.yml",
+    "test-odoo-official.js"
+  ],
+  "scripts": {
+    "start": "node server-secure.js",
+    "dev": "node server.js",
+    "pretest": "node validate-test-env.js",
+    "test": "NODE_ENV=test jest --detectOpenHandles --forceExit",
+    "test:watch": "NODE_ENV=test jest --watch",
+    "test:coverage": "NODE_ENV=test jest --coverage",
+    "test:no-validation": "NODE_ENV=test jest --detectOpenHandles --forceExit",
+    "test:official": "node test-odoo-official.js",
+    "ci:test": "npm run test:official && npm run test:no-validation"
+  },
+  "dependencies": {
+    "@renanteixeira/odoo-await": "^3.5.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^30.0.5",
+    "supertest": "^7.1.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 30000,
+    "collectCoverageFrom": [
+      "*.js",
+      "!server-test.js"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ]
+  },
+  "overrides": {
+    "glob": "^10.0.0",
+    "inflight": "npm:@isaacs/inflight@^1.0.6"
+  }
+}
