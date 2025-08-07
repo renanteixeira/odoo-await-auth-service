@@ -131,7 +131,7 @@ version: '3.8'
 
 services:
   odoo-auth:
-    image: renanteixeira/odoo-auth-service:latest
+    image: sprenanteixeira/odoo-auth-service:latest
     ports:
       - "3001:3001"
     environment:
