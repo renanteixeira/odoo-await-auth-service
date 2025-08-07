@@ -44,7 +44,10 @@
     "test:coverage": "NODE_ENV=test jest --coverage",
     "test:no-validation": "NODE_ENV=test jest --detectOpenHandles --forceExit",
     "test:official": "node test-odoo-official.js",
-    "ci:test": "npm run test:official && npm run test:no-validation"
+    "ci:test": "npm run test:official && npm run test:no-validation",
+    "docker:build": "docker build -t renanteixeira/odoo-auth-service:latest -t renanteixeira/odoo-auth-service:v1.0.0 .",
+    "docker:push": "docker push renanteixeira/odoo-auth-service:latest && docker push renanteixeira/odoo-auth-service:v1.0.0",
+    "docker:run": "docker run -d --name odoo-auth -p 3001:3001 --env-file .env renanteixeira/odoo-auth-service:latest"
   },
   "dependencies": {
     "@renanteixeira/odoo-await": "^3.5.0",

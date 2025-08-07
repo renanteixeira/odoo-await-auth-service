@@ -1,7 +1,7 @@
 # Odoo Auth Service
 
 [![CI/CD Pipeline](https://github.com/renanteixeira/odoo-await-auth-service/workflows/🚀%20Odoo%20Auth%20Service%20CI/CD/badge.svg)](https://github.com/renanteixeira/odoo-await-auth-service/actions)
-[![Docker Image](https://img.shields.io/badge/docker-sprenanteixeira%2Fodoo--auth--service-blue.svg)](https://hub.docker.com/r/sprenanteixeira/odoo-auth-service)
+[![Docker Image](https://img.shields.io/badge/docker-renanteixeira%2Fodoo--auth--service-blue.svg)](https://hub.docker.com/r/renanteixeira/odoo-auth-service)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 

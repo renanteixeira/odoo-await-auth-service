@@ -1,6 +1,14 @@
 # Use Node.js 22 Alpine for smaller image size
 FROM node:22-alpine
 
+# Add metadata labels
+LABEL org.opencontainers.image.title="Odoo Auth Service" \
+      org.opencontainers.image.description="Secure microservice for Odoo authentication with JWT tokens" \
+      org.opencontainers.image.vendor="Renan Teixeira" \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.source="https://github.com/renanteixeira/odoo-await-auth-service" \
+      org.opencontainers.image.documentation="https://github.com/renanteixeira/odoo-await-auth-service#readme"
+
 # Set working directory
 WORKDIR /app
 

@@ -155,12 +155,20 @@ jobs:
       id: meta
       uses: docker/metadata-action@v5
       with:
-        images: sprenanteixeira/odoo-auth-service
+        images: renanteixeira/odoo-auth-service
         tags: |
+          type=raw,value=latest,enable={{is_default_branch}}
           type=ref,event=branch
           type=ref,event=pr
           type=semver,pattern={{version}}
           type=semver,pattern={{major}}.{{minor}}
+          type=semver,pattern={{major}}
+          type=sha,prefix={{branch}}-
+        labels: |
+          org.opencontainers.image.title=Odoo Auth Service
+          org.opencontainers.image.description=Secure microservice for Odoo authentication with JWT tokens
+          org.opencontainers.image.vendor=Renan Teixeira
+          org.opencontainers.image.licenses=MIT
           
     - name: 🔨 Build and push Docker image
       uses: docker/build-push-action@v5
@@ -187,5 +195,5 @@ jobs:
     - name: 🚀 Deploy notification
       run: |
         echo "🎉 Ready for deployment!"
-        echo "Docker image built and available at: sprenanteixeira/odoo-auth-service:main"
-        echo "Use: docker run -p 3001:3001 --env-file .env sprenanteixeira/odoo-auth-service:main"
+        echo "Docker image built and available at: renanteixeira/odoo-auth-service:latest"
+        echo "Use: docker run -p 3001:3001 --env-file .env renanteixeira/odoo-auth-service:latest"
