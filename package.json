@@ -62,18 +62,6 @@
     "jest": "^30.0.5",
     "supertest": "^7.1.4"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "testTimeout": 30000,
-    "collectCoverageFrom": [
-      "*.js",
-      "!server-test.js"
-    ],
-    "coverageReporters": [
-      "text",
-      "html"
-    ]
-  },
   "overrides": {
     "glob": "^10.0.0",
     "inflight": "npm:@isaacs/inflight@^1.0.6"
