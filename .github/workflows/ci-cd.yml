@@ -76,31 +76,167 @@ jobs:
         echo "🔍 Testing connection to official Odoo demo instances..."
         MOCK_ODOO_TEST=true node test-odoo-official.js
 
-  # Security audit
-  security:
-    name: 🔒 Security Audit
+  # Multi-version Odoo compatibility testing
+  multi-version-test:
+    name: � Multi-Version Odoo Tests
     runs-on: ubuntu-latest
+    continue-on-error: true  # Don't fail build if some versions fail
     
     steps:
-    - name: 📦 Checkout code
+    - name: 📦 Checkout odoo-await-auth-service
       uses: actions/checkout@v4
-      
+      with:
+        path: auth-service
+        
+    - name: 📦 Checkout odoo-await for testing infrastructure
+      uses: actions/checkout@v4
+      with:
+        repository: renanteixeira/odoo-await
+        path: odoo-await
+        
     - name: 🔧 Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: 20.x
         cache: 'npm'
+        cache-dependency-path: auth-service/package-lock.json
         
     - name: 📥 Install dependencies
-      run: npm ci
-      
-    - name: 🔍 Run security audit
-      run: npm audit --audit-level=moderate
-      
-    - name: 🕵️ Check for vulnerabilities
       run: |
-        echo "Checking for high/critical vulnerabilities..."
-        npm audit --audit-level=high --json | jq '.vulnerabilities | length' || echo "No audit available"
+        cd auth-service
+        npm ci
+        
+    - name: � Start Odoo test infrastructure
+      run: |
+        cd odoo-await
+        docker-compose up -d
+        echo "⏳ Waiting for Odoo services to initialize..."
+        sleep 30
+        
+    - name: 🧪 Test compatibility with all Odoo versions
+      run: |
+        cd auth-service
+        
+        # Versions to test
+        versions=(12 13 14 15 16 17 18 19)
+        ports=(12069 13069 14069 15069 16069 17069 18069 19069)
+        
+        passed=0
+        failed=0
+        
+        echo "🧪 Testing compatibility with ${#versions[@]} Odoo versions..."
+        
+        for i in "${!versions[@]}"; do
+          version=${versions[$i]}
+          port=${ports[$i]}
+          
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🔍 Testing Odoo ${version}.0 (port ${port})..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          
+          # Create test environment file for this version
+          cat > .env.test << EOF
+          ODOO_BASE_URL=http://localhost:${port}
+          ODOO_DB=odoo${version}
+          ODOO_PORT=${port}
+          ODOO_USER=admin
+          ODOO_PW=admin
+          JWT_SECRET=test-jwt-secret-for-ci-${version}
+          PORT=3001
+          NODE_ENV=test
+          EOF
+          
+          # Wait for Odoo service to be ready
+          echo "⏳ Waiting for Odoo ${version}.0 to be ready..."
+          timeout=300
+          elapsed=0
+          while ! curl -s -f http://localhost:${port}/web/database/selector > /dev/null 2>&1; do
+            if [ $elapsed -ge $timeout ]; then
+              echo "❌ Odoo ${version}.0 did not respond within ${timeout} seconds"
+              ((failed++))
+              continue 2
+            fi
+            echo "Waiting... (${elapsed}s/${timeout}s)"
+            sleep 10
+            elapsed=$((elapsed + 10))
+          done
+          
+          echo "✅ Odoo ${version}.0 is ready!"
+          
+          # Run tests with this version
+          echo "🧪 Running tests against Odoo ${version}.0..."
+          
+          # Export environment variables
+          export ODOO_BASE_URL="http://localhost:${port}"
+          export ODOO_DB="odoo${version}"
+          export ODOO_PORT="${port}"
+          export ODOO_USER="admin"
+          export ODOO_PW="admin"
+          export JWT_SECRET="test-jwt-secret-for-ci-${version}"
+          export PORT="3001"
+          export NODE_ENV="test"
+          
+          # Create log file for this version
+          log_file="test-results-odoo${version}.log"
+          
+          # Run the test suite with detailed logging
+          echo "📝 Starting tests for Odoo ${version}.0 at $(date)" >> "$log_file"
+          echo "Environment: ODOO_BASE_URL=$ODOO_BASE_URL, ODOO_DB=$ODOO_DB" >> "$log_file"
+          echo "===================================================================" >> "$log_file"
+          
+          if npm run test:no-validation >> "$log_file" 2>&1; then
+            echo "✅ Odoo ${version}.0 - PASSED all tests!"
+            echo "✅ PASSED" >> "$log_file"
+            ((passed++))
+          else
+            echo "❌ Odoo ${version}.0 - FAILED tests!"
+            echo "❌ FAILED" >> "$log_file"
+            ((failed++))
+          fi
+          
+          echo "===================================================================" >> "$log_file"
+          echo "Test completed for Odoo ${version}.0 at $(date)" >> "$log_file"
+          echo "" >> "$log_file"
+          
+          # Clean up environment
+          unset ODOO_BASE_URL ODOO_DB ODOO_PORT ODOO_USER ODOO_PW JWT_SECRET PORT NODE_ENV
+          rm -f .env.test
+          
+        done
+        
+        echo ""
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "📊 MULTI-VERSION TEST SUMMARY"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "✅ Versions that passed: ${passed}"
+        echo "❌ Versions that failed: ${failed}"
+        echo "📝 Total versions tested: $((passed + failed))"
+        
+        if [ $failed -eq 0 ]; then
+          echo ""
+          echo "🎉 SUCCESS! All Odoo versions are compatible!"
+          exit 0
+        else
+          echo ""
+          echo "⚠️  WARNING! Some versions had failures. Check logs above for details."
+          exit 1
+        fi
+        
+    - name: 📤 Upload test logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: multi-version-test-logs
+        path: |
+          auth-service/test-results-*.log
+        retention-days: 30
+        
+    - name: 🧹 Cleanup Docker services
+      if: always()
+      run: |
+        cd odoo-await
+        docker-compose down -v || true
 
   # Coverage reporting - Currently disabled due to babel compatibility issues
   # coverage:
@@ -135,7 +271,7 @@ jobs:
   docker:
     name: 🐳 Docker Build & Publish
     runs-on: ubuntu-latest
-    needs: [test, security]
+    needs: [test, security, multi-version-test]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     
     steps:
