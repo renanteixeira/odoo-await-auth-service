@@ -155,8 +155,15 @@ app.post('/odoo/test', async (req, res) => {
     const odoo = session.odooClient;
     
     const partnerIds = await odoo.search('res.partner', []);
-    const productIds = await odoo.search('product.template', []);
     const userIds = await odoo.search('res.users', []);
+    
+    // Try product.template, but handle if it doesn't exist
+    let productIds = [];
+    try {
+      productIds = await odoo.search('product.template', []);
+    } catch (error) {
+      console.log('product.template not available:', error.message);
+    }
     
     const samplePartners = await odoo.searchRead(
       'res.partner', 
