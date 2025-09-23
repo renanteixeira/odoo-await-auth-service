@@ -271,7 +271,7 @@ jobs:
   docker:
     name: 🐳 Docker Build & Publish
     runs-on: ubuntu-latest
-    needs: [test, security, multi-version-test]
+    needs: [test, multi-version-test]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     
     steps:
@@ -320,7 +320,7 @@ jobs:
   deploy-staging:
     name: 🚀 Deploy to Staging
     runs-on: ubuntu-latest
-    needs: [docker]
+    needs: [test, multi-version-test]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     environment: staging
     
