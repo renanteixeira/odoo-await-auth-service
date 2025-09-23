@@ -1,0 +1,273 @@
+﻿2025-09-23T01:04:33.8806607Z Current runner version: '2.328.0'
+2025-09-23T01:04:33.8840505Z ##[group]Runner Image Provisioner
+2025-09-23T01:04:33.8841725Z Hosted Compute Agent
+2025-09-23T01:04:33.8842600Z Version: 20250829.383
+2025-09-23T01:04:33.8843547Z Commit: 27cb235aab5b0e52e153a26cd86b4742e89dac5d
+2025-09-23T01:04:33.8844702Z Build Date: 2025-08-29T13:48:48Z
+2025-09-23T01:04:33.8845745Z ##[endgroup]
+2025-09-23T01:04:33.8846582Z ##[group]Operating System
+2025-09-23T01:04:33.8847638Z Ubuntu
+2025-09-23T01:04:33.8848483Z 24.04.3
+2025-09-23T01:04:33.8849195Z LTS
+2025-09-23T01:04:33.8849939Z ##[endgroup]
+2025-09-23T01:04:33.8850631Z ##[group]Runner Image
+2025-09-23T01:04:33.8851587Z Image: ubuntu-24.04
+2025-09-23T01:04:33.8852381Z Version: 20250907.24.1
+2025-09-23T01:04:33.8854113Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250907.24/images/ubuntu/Ubuntu2404-Readme.md
+2025-09-23T01:04:33.8856728Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250907.24
+2025-09-23T01:04:33.8858693Z ##[endgroup]
+2025-09-23T01:04:33.8860426Z ##[group]GITHUB_TOKEN Permissions
+2025-09-23T01:04:33.8862981Z Contents: read
+2025-09-23T01:04:33.8863895Z Metadata: read
+2025-09-23T01:04:33.8864661Z Packages: read
+2025-09-23T01:04:33.8865565Z ##[endgroup]
+2025-09-23T01:04:33.8869078Z Secret source: Actions
+2025-09-23T01:04:33.8870565Z Prepare workflow directory
+2025-09-23T01:04:33.9418202Z Prepare all required actions
+2025-09-23T01:04:33.9473569Z Getting action download info
+2025-09-23T01:04:34.2780385Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-09-23T01:04:34.4532956Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-09-23T01:04:34.5930434Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2025-09-23T01:04:34.8429335Z Complete job name: � Multi-Version Odoo Tests
+2025-09-23T01:04:34.9158016Z ##[group]Run actions/checkout@v4
+2025-09-23T01:04:34.9159041Z with:
+2025-09-23T01:04:34.9159474Z   path: auth-service
+2025-09-23T01:04:34.9160002Z   repository: renanteixeira/odoo-await-auth-service
+2025-09-23T01:04:34.9160823Z   token: ***
+2025-09-23T01:04:34.9161242Z   ssh-strict: true
+2025-09-23T01:04:34.9161673Z   ssh-user: git
+2025-09-23T01:04:34.9162105Z   persist-credentials: true
+2025-09-23T01:04:34.9162574Z   clean: true
+2025-09-23T01:04:34.9163008Z   sparse-checkout-cone-mode: true
+2025-09-23T01:04:34.9163530Z   fetch-depth: 1
+2025-09-23T01:04:34.9163957Z   fetch-tags: false
+2025-09-23T01:04:34.9164380Z   show-progress: true
+2025-09-23T01:04:34.9164816Z   lfs: false
+2025-09-23T01:04:34.9165211Z   submodules: false
+2025-09-23T01:04:34.9165638Z   set-safe-directory: true
+2025-09-23T01:04:34.9166322Z env:
+2025-09-23T01:04:34.9166713Z   NODE_ENV: test
+2025-09-23T01:04:34.9167314Z ##[endgroup]
+2025-09-23T01:04:35.0241427Z Syncing repository: renanteixeira/odoo-await-auth-service
+2025-09-23T01:04:35.0243379Z ##[group]Getting Git version info
+2025-09-23T01:04:35.0244426Z Working directory is '/home/runner/work/odoo-await-auth-service/odoo-await-auth-service/auth-service'
+2025-09-23T01:04:35.0245704Z [command]/usr/bin/git version
+2025-09-23T01:04:35.0314078Z git version 2.51.0
+2025-09-23T01:04:35.0340112Z ##[endgroup]
+2025-09-23T01:04:35.0353902Z Temporarily overriding HOME='/home/runner/work/_temp/f7f24247-b8d5-4080-a54b-b7d809bccab0' before making global git config changes
+2025-09-23T01:04:35.0355371Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-23T01:04:35.0367719Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/odoo-await-auth-service/odoo-await-auth-service/auth-service
+2025-09-23T01:04:35.0402634Z ##[group]Initializing the repository
+2025-09-23T01:04:35.0408114Z [command]/usr/bin/git init /home/runner/work/odoo-await-auth-service/odoo-await-auth-service/auth-service
+2025-09-23T01:04:35.0515333Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-09-23T01:04:35.0516644Z hint: is subject to change. To configure the initial branch name to use in all
+2025-09-23T01:04:35.0517862Z hint: of your new repositories, which will suppress this warning, call:
+2025-09-23T01:04:35.0518740Z hint:
+2025-09-23T01:04:35.0519605Z hint: 	git config --global init.defaultBranch <name>
+2025-09-23T01:04:35.0520525Z hint:
+2025-09-23T01:04:35.0521112Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-09-23T01:04:35.0522029Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-09-23T01:04:35.0522740Z hint:
+2025-09-23T01:04:35.0523135Z hint: 	git branch -m <name>
+2025-09-23T01:04:35.0523596Z hint:
+2025-09-23T01:04:35.0524210Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-09-23T01:04:35.0525802Z Initialized empty Git repository in /home/runner/work/odoo-await-auth-service/odoo-await-auth-service/auth-service/.git/
+2025-09-23T01:04:35.0530659Z [command]/usr/bin/git remote add origin https://github.com/renanteixeira/odoo-await-auth-service
+2025-09-23T01:04:35.0567419Z ##[endgroup]
+2025-09-23T01:04:35.0568213Z ##[group]Disabling automatic garbage collection
+2025-09-23T01:04:35.0571769Z [command]/usr/bin/git config --local gc.auto 0
+2025-09-23T01:04:35.0602662Z ##[endgroup]
+2025-09-23T01:04:35.0604026Z ##[group]Setting up auth
+2025-09-23T01:04:35.0610251Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-23T01:04:35.0641967Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-23T01:04:35.0965140Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-23T01:04:35.0997735Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-23T01:04:35.1222439Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-09-23T01:04:35.1258763Z ##[endgroup]
+2025-09-23T01:04:35.1260179Z ##[group]Fetching the repository
+2025-09-23T01:04:35.1277434Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +638c4e3f3c4e4b5645525963171389a70fdbda65:refs/remotes/origin/main
+2025-09-23T01:04:35.3078145Z From https://github.com/renanteixeira/odoo-await-auth-service
+2025-09-23T01:04:35.3080242Z  * [new ref]         638c4e3f3c4e4b5645525963171389a70fdbda65 -> origin/main
+2025-09-23T01:04:35.3109653Z ##[endgroup]
+2025-09-23T01:04:35.3111469Z ##[group]Determining the checkout info
+2025-09-23T01:04:35.3113408Z ##[endgroup]
+2025-09-23T01:04:35.3118015Z [command]/usr/bin/git sparse-checkout disable
+2025-09-23T01:04:35.3160719Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-09-23T01:04:35.3189795Z ##[group]Checking out the ref
+2025-09-23T01:04:35.3193893Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-09-23T01:04:35.3258676Z Switched to a new branch 'main'
+2025-09-23T01:04:35.3261014Z branch 'main' set up to track 'origin/main'.
+2025-09-23T01:04:35.3268589Z ##[endgroup]
+2025-09-23T01:04:35.3302703Z [command]/usr/bin/git log -1 --format=%H
+2025-09-23T01:04:35.3324409Z 638c4e3f3c4e4b5645525963171389a70fdbda65
+2025-09-23T01:04:35.3635259Z ##[group]Run actions/checkout@v4
+2025-09-23T01:04:35.3636368Z with:
+2025-09-23T01:04:35.3637375Z   repository: renanteixeira/odoo-await
+2025-09-23T01:04:35.3638531Z   path: odoo-await
+2025-09-23T01:04:35.3639698Z   token: ***
+2025-09-23T01:04:35.3640541Z   ssh-strict: true
+2025-09-23T01:04:35.3641433Z   ssh-user: git
+2025-09-23T01:04:35.3642338Z   persist-credentials: true
+2025-09-23T01:04:35.3643362Z   clean: true
+2025-09-23T01:04:35.3644272Z   sparse-checkout-cone-mode: true
+2025-09-23T01:04:35.3645382Z   fetch-depth: 1
+2025-09-23T01:04:35.3646466Z   fetch-tags: false
+2025-09-23T01:04:35.3647564Z   show-progress: true
+2025-09-23T01:04:35.3648479Z   lfs: false
+2025-09-23T01:04:35.3649317Z   submodules: false
+2025-09-23T01:04:35.3650241Z   set-safe-directory: true
+2025-09-23T01:04:35.3651220Z env:
+2025-09-23T01:04:35.3651994Z   NODE_ENV: test
+2025-09-23T01:04:35.3652837Z ##[endgroup]
+2025-09-23T01:04:35.4598987Z Syncing repository: renanteixeira/odoo-await
+2025-09-23T01:04:35.4606122Z ##[group]Getting Git version info
+2025-09-23T01:04:35.4609040Z Working directory is '/home/runner/work/odoo-await-auth-service/odoo-await-auth-service/odoo-await'
+2025-09-23T01:04:35.4649029Z [command]/usr/bin/git version
+2025-09-23T01:04:35.4685431Z git version 2.51.0
+2025-09-23T01:04:35.4711918Z ##[endgroup]
+2025-09-23T01:04:35.4726178Z Temporarily overriding HOME='/home/runner/work/_temp/4456f5ed-3c1d-4881-b4ca-8de329cb0bb2' before making global git config changes
+2025-09-23T01:04:35.4730024Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-23T01:04:35.4738911Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/odoo-await-auth-service/odoo-await-auth-service/odoo-await
+2025-09-23T01:04:35.4770292Z ##[group]Initializing the repository
+2025-09-23T01:04:35.4775413Z [command]/usr/bin/git init /home/runner/work/odoo-await-auth-service/odoo-await-auth-service/odoo-await
+2025-09-23T01:04:35.4810925Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-09-23T01:04:35.4813562Z hint: is subject to change. To configure the initial branch name to use in all
+2025-09-23T01:04:35.4815519Z hint: of your new repositories, which will suppress this warning, call:
+2025-09-23T01:04:35.4817469Z hint:
+2025-09-23T01:04:35.4818752Z hint: 	git config --global init.defaultBranch <name>
+2025-09-23T01:04:35.4819947Z hint:
+2025-09-23T01:04:35.4821236Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-09-23T01:04:35.4823581Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-09-23T01:04:35.4825119Z hint:
+2025-09-23T01:04:35.4825884Z hint: 	git branch -m <name>
+2025-09-23T01:04:35.4826802Z hint:
+2025-09-23T01:04:35.4828485Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-09-23T01:04:35.4831224Z Initialized empty Git repository in /home/runner/work/odoo-await-auth-service/odoo-await-auth-service/odoo-await/.git/
+2025-09-23T01:04:35.4835173Z [command]/usr/bin/git remote add origin https://github.com/renanteixeira/odoo-await
+2025-09-23T01:04:35.4854981Z ##[endgroup]
+2025-09-23T01:04:35.4856419Z ##[group]Disabling automatic garbage collection
+2025-09-23T01:04:35.4858948Z [command]/usr/bin/git config --local gc.auto 0
+2025-09-23T01:04:35.4889759Z ##[endgroup]
+2025-09-23T01:04:35.4892010Z ##[group]Setting up auth
+2025-09-23T01:04:35.4897350Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-23T01:04:35.4929685Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-23T01:04:35.5152096Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-23T01:04:35.5185851Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-23T01:04:35.5409858Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-09-23T01:04:35.5454485Z ##[endgroup]
+2025-09-23T01:04:35.5457159Z ##[group]Determining the default branch
+2025-09-23T01:04:35.5459148Z Retrieving the default branch name
+2025-09-23T01:04:35.7944293Z Default branch 'master'
+2025-09-23T01:04:35.7948907Z ##[endgroup]
+2025-09-23T01:04:35.7952816Z ##[group]Fetching the repository
+2025-09-23T01:04:35.7956607Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/master:refs/remotes/origin/master
+2025-09-23T01:04:35.9974273Z From https://github.com/renanteixeira/odoo-await
+2025-09-23T01:04:35.9975739Z  * [new branch]      master     -> origin/master
+2025-09-23T01:04:36.0006189Z ##[endgroup]
+2025-09-23T01:04:36.0008712Z ##[group]Determining the checkout info
+2025-09-23T01:04:36.0011285Z ##[endgroup]
+2025-09-23T01:04:36.0013397Z [command]/usr/bin/git sparse-checkout disable
+2025-09-23T01:04:36.0055208Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-09-23T01:04:36.0085780Z ##[group]Checking out the ref
+2025-09-23T01:04:36.0089474Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2025-09-23T01:04:36.0150199Z Reset branch 'master'
+2025-09-23T01:04:36.0152995Z branch 'master' set up to track 'origin/master'.
+2025-09-23T01:04:36.0160041Z ##[endgroup]
+2025-09-23T01:04:36.0197619Z [command]/usr/bin/git log -1 --format=%H
+2025-09-23T01:04:36.0222036Z c4a24376e20860af62010af419c88cfb1b1ece79
+2025-09-23T01:04:36.0510196Z ##[group]Run actions/setup-node@v4
+2025-09-23T01:04:36.0511178Z with:
+2025-09-23T01:04:36.0511861Z   node-version: 20.x
+2025-09-23T01:04:36.0512634Z   cache: npm
+2025-09-23T01:04:36.0513583Z   cache-dependency-path: auth-service/package-lock.json
+2025-09-23T01:04:36.0514761Z   always-auth: false
+2025-09-23T01:04:36.0515562Z   check-latest: false
+2025-09-23T01:04:36.0516628Z   token: ***
+2025-09-23T01:04:36.0517774Z env:
+2025-09-23T01:04:36.0518434Z   NODE_ENV: test
+2025-09-23T01:04:36.0519170Z ##[endgroup]
+2025-09-23T01:04:36.2697010Z Found in cache @ /opt/hostedtoolcache/node/20.19.5/x64
+2025-09-23T01:04:36.2703579Z ##[group]Environment details
+2025-09-23T01:04:39.2786385Z node: v20.19.5
+2025-09-23T01:04:39.2787179Z npm: 10.8.2
+2025-09-23T01:04:39.2787467Z yarn: 1.22.22
+2025-09-23T01:04:39.2788293Z ##[endgroup]
+2025-09-23T01:04:39.2809103Z [command]/opt/hostedtoolcache/node/20.19.5/x64/bin/npm config get cache
+2025-09-23T01:04:39.6062626Z /home/runner/.npm
+2025-09-23T01:04:39.6959486Z Cache hit for: node-cache-Linux-x64-npm-0825a4771603740f28a68143c0acb3eea7b20a325132c6f8de4e9749330b8090
+2025-09-23T01:04:39.9306450Z Received 12169593 of 12169593 (100.0%), 65.2 MBs/sec
+2025-09-23T01:04:39.9307419Z Cache Size: ~12 MB (12169593 B)
+2025-09-23T01:04:39.9333624Z [command]/usr/bin/tar -xf /home/runner/work/_temp/f72b90de-14d6-4297-9812-bbfa9e9f0a6a/cache.tzst -P -C /home/runner/work/odoo-await-auth-service/odoo-await-auth-service --use-compress-program unzstd
+2025-09-23T01:04:40.0291083Z Cache restored successfully
+2025-09-23T01:04:40.0320396Z Cache restored from key: node-cache-Linux-x64-npm-0825a4771603740f28a68143c0acb3eea7b20a325132c6f8de4e9749330b8090
+2025-09-23T01:04:40.0451676Z ##[group]Run cd auth-service
+2025-09-23T01:04:40.0452007Z [36;1mcd auth-service[0m
+2025-09-23T01:04:40.0452242Z [36;1mnpm ci[0m
+2025-09-23T01:04:40.0598401Z shell: /usr/bin/bash -e {0}
+2025-09-23T01:04:40.0598689Z env:
+2025-09-23T01:04:40.0598891Z   NODE_ENV: test
+2025-09-23T01:04:40.0599086Z ##[endgroup]
+2025-09-23T01:04:46.4791554Z 
+2025-09-23T01:04:46.4798144Z added 408 packages, and audited 409 packages in 6s
+2025-09-23T01:04:46.4798472Z 
+2025-09-23T01:04:46.4798667Z 65 packages are looking for funding
+2025-09-23T01:04:46.4798996Z   run `npm fund` for details
+2025-09-23T01:04:46.4803162Z 
+2025-09-23T01:04:46.4803396Z found 0 vulnerabilities
+2025-09-23T01:04:46.5021786Z ##[group]Run cd odoo-await
+2025-09-23T01:04:46.5022102Z [36;1mcd odoo-await[0m
+2025-09-23T01:04:46.5022341Z [36;1mdocker-compose up -d[0m
+2025-09-23T01:04:46.5022687Z [36;1mecho "⏳ Waiting for Odoo services to initialize..."[0m
+2025-09-23T01:04:46.5023007Z [36;1msleep 30[0m
+2025-09-23T01:04:46.5053575Z shell: /usr/bin/bash -e {0}
+2025-09-23T01:04:46.5053813Z env:
+2025-09-23T01:04:46.5054043Z   NODE_ENV: test
+2025-09-23T01:04:46.5054235Z ##[endgroup]
+2025-09-23T01:04:46.5108740Z /home/runner/work/_temp/f9475f50-9d50-4dc0-8eb7-a78146e2b538.sh: line 2: docker-compose: command not found
+2025-09-23T01:04:46.5120787Z ##[error]Process completed with exit code 127.
+2025-09-23T01:04:46.5192800Z ##[group]Run actions/upload-artifact@v4
+2025-09-23T01:04:46.5193092Z with:
+2025-09-23T01:04:46.5193280Z   name: multi-version-test-logs
+2025-09-23T01:04:46.5193537Z   path: auth-service/test-results-*.log
+
+2025-09-23T01:04:46.5193792Z   retention-days: 30
+2025-09-23T01:04:46.5193991Z   if-no-files-found: warn
+2025-09-23T01:04:46.5194216Z   compression-level: 6
+2025-09-23T01:04:46.5194419Z   overwrite: false
+2025-09-23T01:04:46.5194614Z   include-hidden-files: false
+2025-09-23T01:04:46.5194831Z env:
+2025-09-23T01:04:46.5195002Z   NODE_ENV: test
+2025-09-23T01:04:46.5195180Z ##[endgroup]
+2025-09-23T01:04:46.7345184Z ##[warning]No files were found with the provided path: auth-service/test-results-*.log. No artifacts will be uploaded.
+2025-09-23T01:04:46.7421617Z ##[group]Run cd odoo-await
+2025-09-23T01:04:46.7421908Z [36;1mcd odoo-await[0m
+2025-09-23T01:04:46.7422143Z [36;1mdocker compose down -v || true[0m
+2025-09-23T01:04:46.7451767Z shell: /usr/bin/bash -e {0}
+2025-09-23T01:04:46.7452009Z env:
+2025-09-23T01:04:46.7452178Z   NODE_ENV: test
+2025-09-23T01:04:46.7452366Z ##[endgroup]
+2025-09-23T01:04:51.6875539Z Post job cleanup.
+2025-09-23T01:04:51.7823339Z [command]/usr/bin/git version
+2025-09-23T01:04:51.7867848Z git version 2.51.0
+2025-09-23T01:04:51.7931869Z Temporarily overriding HOME='/home/runner/work/_temp/6dbed993-60ed-422e-aee3-108ee27a218b' before making global git config changes
+2025-09-23T01:04:51.7933254Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-23T01:04:51.7948195Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/odoo-await-auth-service/odoo-await-auth-service/odoo-await
+2025-09-23T01:04:51.7989521Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-23T01:04:51.8028962Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-23T01:04:51.8275635Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-23T01:04:51.8300115Z http.https://github.com/.extraheader
+2025-09-23T01:04:51.8313122Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-09-23T01:04:51.8347546Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-23T01:04:51.8702615Z Post job cleanup.
+2025-09-23T01:04:51.9669685Z [command]/usr/bin/git version
+2025-09-23T01:04:51.9721572Z git version 2.51.0
+2025-09-23T01:04:51.9787690Z Temporarily overriding HOME='/home/runner/work/_temp/8dab6001-1aa9-4451-8f7d-930637757236' before making global git config changes
+2025-09-23T01:04:51.9789019Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-23T01:04:51.9795941Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/odoo-await-auth-service/odoo-await-auth-service/auth-service
+2025-09-23T01:04:51.9840289Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-23T01:04:51.9880867Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-23T01:04:52.0110818Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-23T01:04:52.0132809Z http.https://github.com/.extraheader
+2025-09-23T01:04:52.0145852Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-09-23T01:04:52.0177981Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-23T01:04:52.0504413Z Cleaning up orphan processes
