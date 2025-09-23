@@ -2,10 +2,23 @@
 
 [![CI/CD Pipeline](https://github.com/renanteixeira/odoo-await-auth-service/workflows/🚀%20Odoo%20Auth%20Service%20CI/CD/badge.svg)](https://github.com/renanteixeira/odoo-await-auth-service/actions)
 [![Docker Image](https://img.shields.io/badge/docker-renanteixeira%2Fodoo--auth--service-blue.svg)](https://hub.docker.com/r/renanteixeira/odoo-auth-service)
+[![npm version](https://img.shields.io/npm/v/@renanteixeira/odoo-auth-service.svg)](https://www.npmjs.com/package/@renanteixeira/odoo-auth-service)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A secure microservice for Odoo authentication providing JWT-based authentication and session management.
+
+## Quick Start
+
+### NPM Installation
+```bash
+npm install @renanteixeira/odoo-auth-service
+```
+
+### Docker (Recommended)
+```bash
+docker run -d -p 3001:3001 --env-file .env renanteixeira/odoo-auth-service:latest
+```
 
 ## Odoo Version Compatibility
 
@@ -40,12 +53,12 @@ npm install @renanteixeira/odoo-await@^3.5.0
 
 ## Installation
 
-### NPM
+### NPM (Recommended for Development)
 ```bash
-npm install odoo-auth-service
+npm install @renanteixeira/odoo-auth-service
 ```
 
-### Docker
+### Docker (Recommended for Production)
 ```bash
 docker build -t odoo-auth-service .
 docker run -p 3001:3001 --env-file .env odoo-auth-service
@@ -54,6 +67,14 @@ docker run -p 3001:3001 --env-file .env odoo-auth-service
 ### Docker Compose
 ```bash
 docker-compose up -d
+```
+
+### From Source
+```bash
+git clone https://github.com/renanteixeira/odoo-await-auth-service.git
+cd odoo-await-auth-service
+npm install
+npm start
 ```
 
 ## Configuration
