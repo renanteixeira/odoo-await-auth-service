@@ -50,7 +50,7 @@
     "docker:run": "docker run -d --name odoo-auth -p 3001:3001 --env-file .env renanteixeira/odoo-auth-service:latest"
   },
   "dependencies": {
-    "@renanteixeira/odoo-await": "^3.5.0",
+    "@renanteixeira/odoo-await": "^3.7.1",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
