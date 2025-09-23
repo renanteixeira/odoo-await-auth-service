@@ -4,7 +4,12 @@ on:
   push:
     branches: [ main, develop ]
   pull_request:
-    branches: [ main ]
+    branches:     - name: 🐳 Start Odoo test infrastructure
+      run: |
+        cd odoo-await
+        docker compose up -d
+        echo "⏳ Waiting for Odoo services to initialize..."
+        sleep 30 ]
 
 env:
   NODE_ENV: test
@@ -236,7 +241,7 @@ jobs:
       if: always()
       run: |
         cd odoo-await
-        docker-compose down -v || true
+        docker compose down -v || true
 
   # Coverage reporting - Currently disabled due to babel compatibility issues
   # coverage:
