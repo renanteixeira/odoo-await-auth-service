@@ -7,15 +7,36 @@
 
 A secure microservice for Odoo authentication providing JWT-based authentication and session management.
 
-## Features
+## Odoo Version Compatibility
 
-- 🔐 Secure JWT-based authentication
-- 🛡️ Rate limiting and security headers
-- 🎯 Input validation and sanitization  
-- 📊 Health check endpoint
-- 🐳 Docker support
-- 🧪 Comprehensive test suite
-- 🔍 Session management with automatic cleanup
+This service uses the `@renanteixeira/odoo-await` library for Odoo integration. Different versions of the library support different Odoo versions:
+
+### Supported Versions
+
+| Odoo Version | odoo-await Version | Status |
+|-------------|-------------------|--------|
+| Odoo 19.x   | `^3.7.1`         | ✅ Fully Supported |
+| Odoo 16.x-18.x | `^3.5.0`       | ✅ Compatible |
+| Odoo < 16.x | Not tested       | ⚠️ May work with 3.5.0 |
+
+### Version Selection
+
+Choose the appropriate `odoo-await` version based on your Odoo instance:
+
+```bash
+# For Odoo 19
+npm install @renanteixeira/odoo-await@^3.7.1
+
+# For Odoo 16-18
+npm install @renanteixeira/odoo-await@^3.5.0
+```
+
+### Important Notes
+
+- **Odoo 19** requires `odoo-await@3.7.1` due to XML-RPC API changes
+- **Older versions** should use `odoo-await@3.5.0` for compatibility
+- The service automatically adapts to available Odoo models and features
+- Some demo instances may have limited modules installed
 
 ## Installation
 
